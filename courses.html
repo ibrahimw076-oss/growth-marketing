@@ -1246,24 +1246,8 @@
   `;
   document.head.appendChild(style);
 </script> -->
-# ⚠️ في مشكلة في الكود اللي بعته!
-
-## ❌ المشكلة:
-أنت حطيت **input access_key جوه button** - وده غلط syntaxي!
-
-الـ `input` لازم يكون **جوه `<form>`** مش جوه `<button>`
-
----
-
-## ✅ الكود الصح (3 خطوات بسيطة):
-
-### 1️⃣ أولاً: روح [web3forms.com](https://web3forms.com) وسجّل بإيميلك
-- هتلاقي **Access Key** في الـ Dashboard بعد التسجيل
-- الـ Key اللي بعته (`53638d67-...`) ده مش شغال لازم تسجل الأول
-
-### 2️⃣ ثانياً: حط الكود ده في الـ HTML
-
-```html
+ 
+ 
 <!-- Hidden Form (حطه قبل </body> مباشرة) -->
 <form id="web3formsForm" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" action="https://api.web3forms.com/submit" method="POST">
   <input type="hidden" name="access_key" value="ضع_الـ_Key_بتاعك_هنا">
@@ -1274,11 +1258,7 @@
   <input type="text" name="phone" id="w3formsPhone">
   <input type="text" name="facebook" id="w3formsFacebook">
 </form>
-```
-
-### 3️⃣ ثالثاً: الكود في الـ JavaScript
-
-```html
+ 
 <script>
 /* ===== Configuration ===== */
 const ADMIN_WHATSAPP = '201554579501'; // رقمك
