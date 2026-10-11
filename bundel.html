@@ -1,0 +1,1392 @@
+ 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>باقاتنا المتكاملة | ميديا ماركتيرز</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  :root{
+    --yellow: #ffefb3;
+    --dark-green: #013e37;
+    --white: #ffffff;
+    --gray-text: #667;
+    --red: #e74c3c;
+    --light-bg: #f8f9f8;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{
+    font-family:'Cairo', sans-serif;
+    background: var(--light-bg);
+    color: var(--dark-green);
+    line-height: 1.6;
+  }
+  ul{ list-style:none; }
+  a{ text-decoration:none; }
+
+      /* ===== Navbar ===== */
+  .navbar{
+    background: var(--white);
+    padding: 15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:999;
+    transition: background 0.4s;
+  }
+  .logo img{
+    height: 42px;
+    width: auto;
+    display: block;
+  }
+
+  .navbar ul{
+    display:flex;
+    gap:30px;
+  }
+  .navbar ul li a{
+    color: var(--dark-green);
+    font-weight:600;
+    transition:0.3s;
+  }
+  .navbar ul li a:hover,
+  .navbar ul li a.active{
+    color:#e74c3c;
+  }
+
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+
+  .theme-toggle{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--dark-green);
+    background: transparent;
+    color: var(--dark-green);
+    font-size: 18px;
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover{
+    background: var(--dark-green);
+    color: var(--yellow);
+  }
+
+  .btn-cta{
+    background: var(--yellow);
+    color: var(--dark-green);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight:700;
+    transition:0.3s;
+    border:2px solid var(--yellow);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .btn-cta:hover{
+    background: var(--dark-green);
+    color: var(--yellow);
+    border-color: var(--dark-green);
+  }
+  /* ===== Navbar ===== */
+  .navbar{
+    background: var(--white);
+    padding: 15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:999;
+    transition: background 0.4s;
+  }
+  .logo img{
+    height: 42px;
+    width: auto;
+    display: block;
+  }
+
+  .navbar ul{
+    display:flex;
+    gap:30px;
+  }
+  .navbar ul li a{
+    color: var(--dark-green);
+    font-weight:600;
+    transition:0.3s;
+  }
+  .navbar ul li a:hover,
+  .navbar ul li a.active{
+    color:#e74c3c;
+  }
+
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+
+  .theme-toggle{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--dark-green);
+    background: transparent;
+    color: var(--dark-green);
+    font-size: 18px;
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover{
+    background: var(--dark-green);
+    color: var(--yellow);
+  }
+
+  .btn-cta{
+    background: var(--yellow);
+    color: var(--dark-green);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight:700;
+    transition:0.3s;
+    border:2px solid var(--yellow);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .btn-cta:hover{
+    background: var(--dark-green);
+    color: var(--yellow);
+    border-color: var(--dark-green);
+  }
+
+  /* ===== Page Header ===== */
+  .page-header{
+    background: var(--dark-green);
+    text-align:center;
+    padding: 80px 5% 80px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before{
+    content:'';
+    position:absolute;
+    top:-50px; right:-50px;
+    width:200px; height:200px;
+    background: var(--yellow);
+    border-radius:50%;
+    opacity:0.1;
+  }
+  .page-header::after{
+    content:'';
+    position:absolute;
+    bottom:-80px; left:-80px;
+    width:250px; height:250px;
+    background: var(--yellow);
+    border-radius:50%;
+    opacity:0.08;
+  }
+  .page-header h1{
+    font-size:42px;
+    font-weight:900;
+    margin-bottom:15px;
+    position:relative;
+  }
+  .page-header h1 span{ color: var(--yellow); }
+  .page-header p{
+    color:#cfd8d6;
+    max-width:650px;
+    margin:0 auto;
+    font-size:16px;
+    position:relative;
+  }
+
+  /* ===== Main Tabs ===== */
+  .main-tabs-wrapper{
+    display:flex;
+    justify-content:center;
+    margin: -28px 5% 50px;
+    position:relative;
+    z-index:10;
+  }
+  .main-tabs{
+    display:flex;
+    background: var(--white);
+    border-radius: 50px;
+    padding: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .main-tab-btn{
+    padding: 14px 30px;
+    border:none;
+    background:transparent;
+    font-family:'Cairo', sans-serif;
+    font-weight:700;
+    font-size:15px;
+    color: var(--dark-green);
+    border-radius: 50px;
+    cursor:pointer;
+    transition:0.3s;
+    white-space: nowrap;
+  }
+  .main-tab-btn.active{
+    background: var(--dark-green);
+    color: var(--yellow);
+  }
+
+  /* ===== Pricing Section ===== */
+  .pricing-section{
+    padding: 0 5% 80px;
+  }
+  .pricing-group{ display:none; }
+  .pricing-group.active{ display:block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+  /* Sub Tabs (for standalone) */
+  .sub-tabs-wrapper{
+    display:flex;
+    justify-content:center;
+    margin-bottom: 40px;
+  }
+  .sub-tabs{
+    display:flex;
+    background: var(--dark-green);
+    border-radius: 50px;
+    padding: 5px;
+  }
+  .sub-tab-btn{
+    padding: 12px 25px;
+    border:none;
+    background:transparent;
+    font-family:'Cairo', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    color: var(--white);
+    border-radius: 50px;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  .sub-tab-btn.active{
+    background: var(--yellow);
+    color: var(--dark-green);
+  }
+  .sub-pricing-group{ display:none; }
+  .sub-pricing-group.active{ display:block; }
+
+  .pricing-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    align-items:stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  @media(max-width:900px){
+    .pricing-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media(max-width:600px){
+    .pricing-grid{ grid-template-columns: 1fr; }
+  }
+
+  .price-card{
+    background: var(--white);
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align:center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    border: 2px solid transparent;
+  }
+  .price-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  }
+
+  .price-card.featured{
+    background: var(--dark-green);
+    color: var(--white);
+    border-color: var(--yellow);
+    transform: scale(1.05);
+  }
+  .price-card.featured:hover{ transform: scale(1.05) translateY(-8px); }
+
+  .badge{
+    position:absolute;
+    top:-14px;
+    left:50%;
+    transform:translateX(-50%);
+    background: var(--yellow);
+    color: var(--dark-green);
+    padding:6px 20px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:700;
+    white-space: nowrap;
+  }
+
+  .price-card h3{
+    font-size:20px;
+    margin-bottom:10px;
+    font-weight:800;
+  }
+  .price-card .price{
+    font-size:36px;
+    font-weight:900;
+    color: var(--dark-green);
+    margin: 15px 0;
+  }
+  .price-card.featured .price{ color: var(--yellow); }
+  .price-card .price span{
+    font-size:14px;
+    font-weight:400;
+    color: var(--gray-text);
+  }
+  .price-card.featured .price span{ color:#cfd8d6; }
+
+  .price-card .desc{
+    font-size:13px;
+    color: var(--gray-text);
+    margin-bottom:20px;
+    min-height: 40px;
+  }
+  .price-card.featured .desc{ color:#cfd8d6; }
+
+  .price-card ul{
+    text-align:right;
+    margin-bottom:30px;
+    flex-grow:1;
+  }
+  .price-card ul li{
+    padding:10px 0;
+    font-size:14px;
+    border-bottom:1px solid #eee;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .price-card.featured ul li{ border-bottom:1px solid rgba(255,255,255,0.1); }
+  .price-card ul li i{ color:#27ae60; font-size:13px; flex-shrink:0; }
+  .price-card.featured ul li i{ color: var(--yellow); }
+
+  .price-card .btn-price{
+    background: var(--dark-green);
+    color: var(--white);
+    padding:14px;
+    border-radius:10px;
+    font-weight:700;
+    transition:0.3s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Cairo', sans-serif;
+    font-size: 15px;
+  }
+  .price-card .btn-price:hover{ background:#025448; }
+  .price-card.featured .btn-price{
+    background: var(--yellow);
+    color: var(--dark-green);
+  }
+  .price-card.featured .btn-price:hover{ background:var(--white); }
+
+  .note-box{
+    background: rgba(231, 76, 60, 0.08);
+    border-right: 4px solid var(--red);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 30px auto 0;
+    max-width: 800px;
+    color: var(--red);
+    font-size: 14px;
+    text-align: right;
+  }
+  .note-box i{ margin-left: 8px; }
+
+  /* ===== Custom Package Form ===== */
+  .custom-section{
+    background: var(--white);
+    margin: 0 5% 80px;
+    border-radius: 25px;
+    padding: 50px 5%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .custom-title{ text-align:center; margin-bottom:40px; }
+  .custom-title h4{
+    color: var(--red);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:10px;
+    font-size:14px;
+  }
+  .custom-title h2{
+    font-size:32px;
+    font-weight:900;
+  }
+  .custom-title p{ color:#777; margin-top:10px; }
+
+  .form-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media(max-width:700px){
+    .form-grid{ grid-template-columns: 1fr; }
+  }
+  .form-group{ display:flex; flex-direction:column; }
+  .form-group.full{ grid-column: 1 / -1; }
+  .form-group label{
+    font-weight:700;
+    font-size:14px;
+    margin-bottom:8px;
+    color: var(--dark-green);
+  }
+  .form-group label .req{ color: var(--red); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea{
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    transition: 0.3s;
+    background: #fafafa;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus{
+    outline: none;
+    border-color: var(--dark-green);
+    background: var(--white);
+  }
+  .form-group textarea{ resize: vertical; min-height: 100px; }
+
+  .btn-submit-custom{
+    grid-column: 1 / -1;
+    background: var(--dark-green);
+    color: var(--yellow);
+    padding: 16px;
+    border-radius: 12px;
+    font-weight:800;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .btn-submit-custom:hover{ background: #025448; }
+
+  /* ===== Calculator Section ===== */
+  .calc-section{
+    background: var(--white);
+    margin: 40px 5% 0;
+    border-radius: 25px;
+    padding: 50px 5%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  }
+  .calc-title{ text-align:center; margin-bottom:40px; }
+  .calc-title h4{
+    color: var(--red);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:10px;
+    font-size:14px;
+  }
+  .calc-title h2{
+    font-size:28px;
+    font-weight:900;
+  }
+  .calc-title p{ color:#777; margin-top:10px; font-size:14px; }
+
+  .calc-wrapper{
+    display:grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap:40px;
+  }
+  @media(max-width:900px){
+    .calc-wrapper{ grid-template-columns:1fr; }
+  }
+
+  .calc-options h3{
+    font-size:17px;
+    margin-bottom:20px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--yellow);
+    display:inline-block;
+    font-weight: 800;
+  }
+
+  .option-group{ margin-bottom:25px; }
+
+  .radio-option, .check-option{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#f8f9f8;
+    padding:14px 18px;
+    border-radius:12px;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:0.2s;
+    border:2px solid transparent;
+  }
+  .radio-option:hover, .check-option:hover{ background:#f0f1ef; }
+  .radio-option.selected, .check-option.selected{
+    border-color: var(--dark-green);
+    background: #eafaf7;
+  }
+
+  .option-label{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:600;
+    font-size:14px;
+  }
+  .option-label input{ accent-color: var(--dark-green); width:18px; height:18px; cursor: pointer; }
+  .option-price{
+    font-weight:700;
+    color: var(--dark-green);
+    font-size:14px;
+  }
+
+  /* ===== Summary Box ===== */
+  .summary-box{
+    background: var(--dark-green);
+    border-radius:20px;
+    padding:30px 25px;
+    color: var(--white);
+    height: fit-content;
+    position:sticky;
+    top:30px;
+  }
+  .summary-box h3{
+    font-size:20px;
+    margin-bottom:20px;
+    text-align:center;
+  }
+  .summary-list{
+    margin-bottom:15px;
+    min-height:50px;
+  }
+  .summary-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    color:#cfd8d6;
+    gap: 10px;
+  }
+  .summary-item span:last-child{ color: var(--yellow); font-weight: 700; white-space: nowrap; }
+  .summary-total{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:15px;
+    margin-top:10px;
+    border-top:2px solid var(--yellow);
+  }
+  .summary-total span:first-child{ font-size:15px; font-weight:600; }
+  .summary-total .total-amount{
+    font-size:28px;
+    font-weight:900;
+    color: var(--yellow);
+  }
+  .summary-total .total-amount small{ font-size:13px; color:#cfd8d6; font-weight: 400; }
+
+  .btn-whatsapp-calc{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background: var(--yellow);
+    color: var(--dark-green);
+    padding:14px;
+    border-radius:12px;
+    font-weight:800;
+    margin-top:20px;
+    transition:0.3s;
+    font-size: 15px;
+  }
+  .btn-whatsapp-calc:hover{ background: var(--white); }
+
+  .empty-msg{
+    text-align:center;
+    color:#9db5b1;
+    font-size:13px;
+    padding:15px 0;
+  }
+
+  /* Section Title */
+  .section-divider{
+    text-align:center;
+    margin: 0 5% 30px;
+  }
+  .section-divider h2{
+    font-size:28px;
+    font-weight:900;
+    color: var(--dark-green);
+  }
+  .section-divider p{
+    color:#777;
+    margin-top:8px;
+    font-size:14px;
+  }
+
+  /* Hidden */
+  .hidden{ display:none !important; }
+
+
+</style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="#home" class="logo">
+      <img src="images/dark.png" alt="Growth Marketing" id="logoImg">
+    </a>
+ 
+    <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+         <li><a href="bundel.html" class="nav-link">الباقات</a></li>
+        <li><a href="courses.html" class="nav-link">كورساتنا</a></li>
+      </ul>
+    <div class="nav-right">
+      <button id="themeToggle" class="theme-toggle" title="تبديل الوضع">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <a href="https://wa.me/201554579501?text=مرحباً، أرغب في الحصول على استشارة طبية مجانية" 
+         target="_blank" class="btn-cta">
+         <i class="fa-brands fa-whatsapp"></i> احصل على استشارة
+      </a>
+    </div>
+  </nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <h1>باقاتنا <span>المتكاملة</span></h1>
+  <p>اختار الباقة المناسبة لمنشأتك الطبية، أو استخدم الفورم لتصميم باقة مخصصة تناسب احتياجاتك بالظبط</p>
+</div>
+
+<!-- Main Tabs -->
+<div class="main-tabs-wrapper">
+  <div class="main-tabs">
+    <button class="main-tab-btn active" data-tab="social">إدارة السوشيال ميديا</button>
+    <button class="main-tab-btn" data-tab="standalone">Standalone Services</button>
+    <button class="main-tab-btn" data-tab="custom">باقة مخصصة</button>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- TAB 1: SOCIAL MEDIA PACKAGES -->
+<!-- ============================================ -->
+<div class="pricing-section">
+  <div class="pricing-group active" id="social">
+
+    <div class="section-divider">
+      <h2>باقات إدارة السوشيال ميديا</h2>
+      <p>باقات شهرية متدرجة تناسب كل أنواع المنشآت الطبية</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- Basic -->
+      <div class="price-card">
+        <h3>Basic / Starter</h3>
+        <p class="desc">مناسبة للعيادات في بداية الطريق</p>
+        <div class="price">4,000 <span>ج.م / شهرياً</span></div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> إدارة وتصميم فيسبوك وانستجرام</li>
+          <li><i class="fa-solid fa-check"></i> 8 تصميمات سوشيال ميديا</li>
+          <li><i class="fa-solid fa-check"></i> كتابة محتوى</li>
+          <li><i class="fa-solid fa-check"></i> 2 ريل شهرياً</li>
+          <li><i class="fa-solid fa-check"></i> إدارة الحملات الإعلانية</li>
+          <li><i class="fa-solid fa-check"></i> تقرير شهري مبسط</li>
+          <li><i class="fa-solid fa-check"></i> ضبط الردود والأسئلة الشائعة</li>
+        </ul>
+        <button class="btn-price" onclick="orderPackage('Basic Starter','4000')">
+          <i class="fa-brands fa-whatsapp"></i> اطلب الباقة
+        </button>
+      </div>
+
+      <!-- Growth (Featured) -->
+      <div class="price-card featured">
+        <span class="badge">الأكثر طلباً</span>
+        <h3>Growth Package</h3>
+        <p class="desc">باقة النمو والانتشار للعيادات الطموحة</p>
+        <div class="price">7,500 <span>ج.م / شهرياً</span></div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> إدارة وتصميم فيسبوك وانستجرام</li>
+          <li><i class="fa-solid fa-check"></i> 12 تصميم احترافي</li>
+          <li><i class="fa-solid fa-check"></i> كتابة محتوى طبي متقدم</li>
+          <li><i class="fa-solid fa-check"></i> خطة محتوى شهرية</li>
+          <li><i class="fa-solid fa-check"></i> 2-4 ريلز شهرياً</li>
+          <li><i class="fa-solid fa-check"></i> إدارة الحملات الإعلانية</li>
+          <li><i class="fa-solid fa-check"></i> ضبط الردود والأسئلة الشائعة</li>
+          <li><i class="fa-solid fa-check"></i> تقارير شهرية مفصلة</li>
+          <li><i class="fa-solid fa-check"></i> تحليل النتائج واقتراحات للتحسين</li>
+        </ul>
+        <button class="btn-price" onclick="orderPackage('Growth Package','7500')">
+          <i class="fa-brands fa-whatsapp"></i> اطلب الباقة
+        </button>
+      </div>
+
+      <!-- Premium -->
+      <div class="price-card">
+        <h3>Premium / Elite</h3>
+        <p class="desc">باقة شاملة للمراكز والمستشفيات الكبرى</p>
+        <div class="price">12,000 <span>ج.م / شهرياً</span></div>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> إدارة وتصميم فيسبوك وانستجرام</li>
+          <li><i class="fa-solid fa-check"></i> 15-20 تصميم احترافي شهرياً</li>
+          <li><i class="fa-solid fa-check"></i> كتابة محتوى طبي متقدم</li>
+          <li><i class="fa-solid fa-check"></i> وضع استراتيجية متكاملة</li>
+          <li><i class="fa-solid fa-check"></i> 4-6 ريلز شهرياً</li>
+          <li><i class="fa-solid fa-check"></i> إدارة الحملات الإعلانية</li>
+          <li><i class="fa-solid fa-check"></i> إدارة الانتج وضبط الأسئلة الشائعة</li>
+          <li><i class="fa-solid fa-check"></i> تحسين هوية الصفحة البصرية</li>
+          <li><i class="fa-solid fa-check"></i> تقارير شهرية مفصلة</li>
+          <li><i class="fa-solid fa-check"></i> اجتماع شهري لمراجعة الخطة</li>
+        </ul>
+        <button class="btn-price" onclick="orderPackage('Premium Elite','12000')">
+          <i class="fa-brands fa-whatsapp"></i> اطلب الباقة
+        </button>
+      </div>
+
+    </div>
+
+    <div class="note-box">
+      <i class="fa-solid fa-circle-info"></i>
+      <strong>تنبيه مهم:</strong> تكلفة الميزانية الإعلانية (Media Budget) لا تدخل ضمن أتعاب الإدارة، وتُدفع منفصلة لشركة فيسبوك/انستجرام. <br>
+      <strong style="justify-content: center; display: flex;">أقل مدة تعاقد 3 أشهر</strong> 
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- TAB 2: STANDALONE SERVICES -->
+<!-- ============================================ -->
+<div class="pricing-section">
+  <div class="pricing-group" id="standalone">
+
+    <div class="section-divider">
+      <h2>Standalone Services</h2>
+      <p>خدمات منفصلة تناسب احتياجاتك الفردية</p>
+    </div>
+
+    <!-- Sub Tabs -->
+    <div class="sub-tabs-wrapper">
+      <div class="sub-tabs">
+        <button class="sub-tab-btn active" data-sub="design-only">باقات التصميم</button>
+        <button class="sub-tab-btn" data-sub="media-buying">إدارة الحملات الإعلانية</button>
+      </div>
+    </div>
+
+    <!-- Design Only Sub -->
+    <div class="sub-pricing-group active" id="design-only">
+
+      <div class="section-divider" style="margin-bottom:30px;">
+        <h2 style="font-size:22px;">باقات التصميم فقط (Design Only Packages)</h2>
+      </div>
+
+      <div class="pricing-grid">
+
+        <div class="price-card">
+          <h3>تصميم فردي</h3>
+          <p class="desc">لتصميم واحد فقط بسعر مناسب</p>
+          <div class="price">300 <span>ج.م / تصميم</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> تصميم بوست واحد</li>
+            <li><i class="fa-solid fa-check"></i> تعديل واحد مجاني</li>
+            <li><i class="fa-solid fa-check"></i> جودة احترافية</li>
+            <li><i class="fa-solid fa-check"></i> تسليم سريع</li>
+          </ul>
+          <button class="btn-price" onclick="orderPackage('تصميم فردي','300')">
+            <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+          </button>
+        </div>
+
+        <div class="price-card featured">
+          <span class="badge">الأكثر طلباً</span>
+          <h3>باقة 8 تصاميم</h3>
+          <p class="desc">باقة اقتصادية للصفحات الناشطة</p>
+          <div class="price">2,000 <span>ج.م</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> 8 تصاميم سوشيال ميديا</li>
+            <li><i class="fa-solid fa-check"></i> تعديلين مجانيين</li>
+            <li><i class="fa-solid fa-check"></i> تنسيق بصري متناسق</li>
+            <li><i class="fa-solid fa-check"></i> ملفات جاهزة للنشر</li>
+          </ul>
+          <button class="btn-price" onclick="orderPackage('باقة 8 تصاميم','2000')">
+            <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+          </button>
+        </div>
+
+        <div class="price-card">
+          <h3>باقة 12 تصميم</h3>
+          <p class="desc">مناسبة للعيادات النشطة</p>
+          <div class="price">2,500 <span>ج.م</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> 12 تصميم سوشيال ميديا</li>
+            <li><i class="fa-solid fa-check"></i> 3 تعديلات مجانية</li>
+            <li><i class="fa-solid fa-check"></i> تنسيق بصري كامل</li>
+            <li><i class="fa-solid fa-check"></i> صيغ متعددة للحجم</li>
+          </ul>
+          <button class="btn-price" onclick="orderPackage('باقة 12 تصميم','2500')">
+            <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+          </button>
+        </div>
+
+        <div class="price-card">
+          <h3>باقة 15 تصميم</h3>
+          <p class="desc">للحضور القوي على السوشيال</p>
+          <div class="price">2,700 <span>ج.م</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> 15 تصميم احترافي</li>
+            <li><i class="fa-solid fa-check"></i> 4 تعديلات مجانية</li>
+            <li><i class="fa-solid fa-check"></i> استراتيجية بصرية</li>
+            <li><i class="fa-solid fa-check"></i> جدولة نشر مقترحة</li>
+          </ul>
+          <button class="btn-price" onclick="orderPackage('باقة 15 تصميم','2700')">
+            <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+          </button>
+        </div>
+
+        <div class="price-card">
+          <h3>هوية بصرية كاملة</h3>
+          <p class="desc">لوجو + خط + Visual Identity</p>
+          <div class="price">2,500 <span>ج.م / مرة واحدة</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> تصميم لوجو احترافي</li>
+            <li><i class="fa-solid fa-check"></i> اختيار خطوط العلامة</li>
+            <li><i class="fa-solid fa-check"></i> Visual Identity متكامل</li>
+            <li><i class="fa-solid fa-check"></i> Brand Guidelines</li>
+          </ul>
+          <button class="btn-price" onclick="orderPackage('هوية بصرية كاملة','2500')">
+            <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+          </button>
+        </div>
+
+        <div class="price-card">
+          <h3>تصميم المطبوعات</h3>
+          <p class="desc">روشتات، كروت، فولدرات، بروشورات</p>
+          <div class="price">800 <span>ج.م</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> روشتات طبية احترافية</li>
+            <li><i class="fa-solid fa-check"></i> كروت عمل (بزنس كارد)</li>
+            <li><i class="fa-solid fa-check"></i> فولدرات وبروشورات</li>
+            <li><i class="fa-solid fa-check"></i> ملفات جاهزة للطباعة</li>
+          </ul>
+          <button class="btn-price" onclick="orderPackage('تصميم المطبوعات','800')">
+            <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+          </button>
+        </div>
+
+        <div class="price-card">
+          <h3>Outdoor Banner</h3>
+          <p class="desc">بانرات ويافطات خارجية</p>
+          <div class="price">800 <span>ج.م</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> تصميم بانر خارجي</li>
+            <li><i class="fa-solid fa-check"></i> يافطة واجهات</li>
+            <li><i class="fa-solid fa-check"></i> جودة طباعة عالية</li>
+            <li><i class="fa-solid fa-check"></i> تنفيذ احترافي</li>
+          </ul>
+          <button class="btn-price" onclick="orderPackage('Outdoor Banner','800')">
+            <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Media Buying Sub -->
+    <div class="sub-pricing-group" id="media-buying">
+
+      <div class="section-divider" style="margin-bottom:30px;">
+        <h2 style="font-size:22px;">إدارة الحملات الإعلانية (Media Buying)</h2>
+      </div>
+
+      <div class="pricing-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 800px;">
+
+        <div class="price-card">
+          <h3>حملة بميزانية صغيرة</h3>
+          <p class="desc">مناسبة للحملات التجريبية والاختبار</p>
+          <div class="price">1,500 <span>ج.م / رسوم إدارة</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> ميزانية إعلانية أقل من 5,000 ج</li>
+            <li><i class="fa-solid fa-check"></i> إدارة حملة إعلانية كاملة</li>
+            <li><i class="fa-solid fa-check"></i> استهداف دقيق للجمهور</li>
+            <li><i class="fa-solid fa-check"></i> تقرير أداء</li>
+            <li><i class="fa-solid fa-check"></i> تحسين مستمر</li>
+          </ul>
+          <button class="btn-price" onclick="orderPackage('إدارة حملة إعلانية صغيرة','1500')">
+            <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+          </button>
+        </div>
+
+        <div class="price-card featured">
+          <span class="badge">للميزانيات الكبيرة</span>
+          <h3>حملة بميزانية كبيرة</h3>
+          <p class="desc">للحملات الإعلانية القوية والتوسع</p>
+          <div class="price">20% <span>من قيمة الميزانية</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> ميزانية إعلانية أكبر من 5,000 ج</li>
+            <li><i class="fa-solid fa-check"></i> إدارة احترافية كاملة</li>
+            <li><i class="fa-solid fa-check"></i> A/B Testing متقدم</li>
+            <li><i class="fa-solid fa-check"></i> تقارير تفصيلية أسبوعية</li>
+            <li><i class="fa-solid fa-check"></i> تحسين الـ ROAS</li>
+            <li><i class="fa-solid fa-check"></i> مدير حساب مخصص</li>
+          </ul>
+          <button class="btn-price" onclick="orderPackage('إدارة حملة إعلانية كبيرة (20%)','حسب الميزانية')">
+            <i class="fa-brands fa-whatsapp"></i> اطلب الآن
+          </button>
+        </div>
+
+      </div>
+
+      <div class="note-box">
+        <i class="fa-solid fa-circle-info"></i>
+        <strong>تنبيه:</strong> تكلفة الميزانية الإعلانية (Media Budget) لا تدخل ضمن أتعاب الإدارة، وتُدفع منفصلة لشركة فيسبوك/انستجرام.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- TAB 3: CUSTOM PACKAGE FORM -->
+<!-- ============================================ -->
+<div class="pricing-section">
+  <div class="pricing-group" id="custom">
+
+    <div class="custom-section" style="margin:0; box-shadow:none; padding:0;">
+      <div class="custom-title">
+        <h4>صمم باقتك بنفسك</h4>
+        <h2>باقة مخصصة حسب احتياجاتك</h2>
+        <p>املأ البيانات التالية وهنتواصل معاك خلال ساعات لتأكيد الباقة</p>
+      </div>
+
+      <form id="customForm" onsubmit="return sendCustomToWhatsapp(event)">
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label>اسم المكان / العيادة <span class="req">*</span></label>
+            <input type="text" name="placeName" required placeholder="مثال: عيادة د. أحمد للأسنان">
+          </div>
+
+          <div class="form-group">
+            <label>اسم الطبيب <span class="req">*</span></label>
+            <input type="text" name="doctorName" required placeholder="د. أحمد محمد">
+          </div>
+
+          <div class="form-group">
+            <label>رقم الجوال (واتساب) <span class="req">*</span></label>
+            <input type="tel" name="phone" required placeholder="01xxxxxxxxx">
+          </div>
+
+          <div class="form-group">
+            <label>عدد التصميمات المطلوبة شهرياً</label>
+            <select name="designsCount">
+              <option value="غير محدد">غير محدد (استشارة)</option>
+              <option value="1-5">من 1 إلى 5 تصميمات</option>
+              <option value="6-10">من 6 إلى 10 تصميمات</option>
+              <option value="11-15">من 11 إلى 15 تصميم</option>
+              <option value="15+">أكثر من 15 تصميم</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>عدد الريلز شهرياً</label>
+            <select name="reelsCount">
+              <option value="0">بدون ريلز</option>
+              <option value="1">1 ريل</option>
+              <option value="2-4">من 2 إلى 4 ريلز</option>
+              <option value="4-6">من 4 إلى 6 ريلز</option>
+              <option value="6+">أكثر من 6 ريلز</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>عدد المنصات</label>
+            <select name="platforms">
+              <option value="منصة واحدة">منصة واحدة</option>
+              <option value="منصتين">منصتين (فيسبوك + انستجرام)</option>
+              <option value="3 منصات أو أكثر">3 منصات أو أكثر</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label>الهدف من الباقة <span class="req">*</span></label>
+            <select name="goal" required>
+              <option value="">اختر الهدف</option>
+              <option value="زيادة الوعي">زيادة الوعي بالعلامة</option>
+              <option value="جذب مرضى جدد">جذب مرضى جدد</option>
+              <option value="بناء قاعدة عملاء">بناء قاعدة عملاء</option>
+              <option value="زيادة المبيعات/الحجوزات">زيادة الحجوزات والزيارات</option>
+              <option value="إعادة تفعيل">إعادة تفعيل صفحة قديمة</option>
+              <option value="أخرى">هدف آخر</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label>ملاحظات إضافية (اختياري)</label>
+            <textarea name="notes" placeholder="أي تفاصيل تانية تحب تضيفها..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit-custom">
+            <i class="fa-brands fa-whatsapp"></i> إرسال الباقة المخصصة عبر واتساب
+          </button>
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- Calculator Section (for Design Only customization) -->
+<div class="calc-section" id="calculator">
+  <div class="calc-title">
+    <h4>كالكوليتور التكلفة</h4>
+    <h2>احسب تكلفة باقتك بنفسك</h2>
+    <p>اختار الخدمات اللي محتاجها وشوف السعر يتحدث لحظياً</p>
+  </div>
+
+  <!-- Inner Tabs for Calculator -->
+ 
+
+  <div class="calc-wrapper">
+    <div class="calc-options">
+
+      <!-- Design Calculator -->
+      <div class="calc-group active" id="calc-design-calc">
+
+        <div class="option-group">
+          <h3>باقة التصاميم الأساسية</h3>
+          <label class="radio-option" data-price="300">
+            <span class="option-label"><input type="radio" name="design-base-calc" value="300"> تصميم فردي</span>
+            <span class="option-price">300 ج.م</span>
+          </label>
+          <label class="radio-option" data-price="2000">
+            <span class="option-label"><input type="radio" name="design-base-calc" value="2000"> 8 تصاميم</span>
+            <span class="option-price">2,000 ج.م</span>
+          </label>
+          <label class="radio-option" data-price="2500">
+            <span class="option-label"><input type="radio" name="design-base-calc" value="2500"> 12 تصميم</span>
+            <span class="option-price">2,500 ج.م</span>
+          </label>
+          <label class="radio-option" data-price="2700">
+            <span class="option-label"><input type="radio" name="design-base-calc" value="2700"> 15 تصميم</span>
+            <span class="option-price">2,700 ج.م</span>
+          </label>
+        </div>
+
+        <div class="option-group">
+          <h3>إضافات اختيارية</h3>
+          <label class="check-option" data-price="2500" data-name="هوية بصرية كاملة">
+            <span class="option-label"><input type="checkbox" class="design-addon-calc" value="2500"> هوية بصرية كاملة (لوجو + خط + VI)</span>
+            <span class="option-price">+2,500 ج.م</span>
+          </label>
+          <label class="check-option" data-price="800" data-name="تصميم المطبوعات">
+            <span class="option-label"><input type="checkbox" class="design-addon-calc" value="800"> تصميم المطبوعات (روشتات/كروت/فولدرات)</span>
+            <span class="option-price">+800 ج.م</span>
+          </label>
+          <label class="check-option" data-price="800" data-name="Outdoor Banner">
+            <span class="option-label"><input type="checkbox" class="design-addon-calc" value="800"> بانر/يافطة خارجية (Outdoor)</span>
+            <span class="option-price">+800 ج.م</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Media Calculator -->
+      <div class="calc-group" id="calc-media-calc" style="display:none;">
+
+        <div class="option-group">
+          <h3>نوع الباقة</h3>
+          <label class="radio-option" data-price="1500" data-name="إدارة حملة إعلانية (ميزانية < 5,000 ج)">
+            <span class="option-label"><input type="radio" name="media-base-calc" value="1500"> حملة بميزانية أقل من 5,000 ج</span>
+            <span class="option-price">1,500 ج.م</span>
+          </label>
+          <label class="radio-option" data-price="0" data-name="إدارة حملة إعلانية (ميزانية > 5,000 ج)">
+            <span class="option-label"><input type="radio" name="media-base-calc" value="0"> حملة بميزانية أكبر من 5,000 ج</span>
+            <span class="option-price">20% من الميزانية</span>
+          </label>
+        </div>
+
+        <div class="option-group">
+          <h3>الميزانية الإعلانية المتوقعة</h3>
+          <label class="radio-option" data-price="3000" data-name="ميزانية إعلانية 3,000 ج">
+            <span class="option-label"><input type="radio" name="media-budget" value="3000"> 3,000 ج</span>
+            <span class="option-price">3,000 ج.م</span>
+          </label>
+          <label class="radio-option" data-price="5000" data-name="ميزانية إعلانية 5,000 ج">
+            <span class="option-label"><input type="radio" name="media-budget" value="5000"> 5,000 ج</span>
+            <span class="option-price">5,000 ج.م</span>
+          </label>
+          <label class="radio-option" data-price="10000" data-name="ميزانية إعلانية 10,000 ج">
+            <span class="option-label"><input type="radio" name="media-budget" value="10000"> 10,000 ج</span>
+            <span class="option-price">10,000 ج.م</span>
+          </label>
+          <label class="radio-option" data-price="20000" data-name="ميزانية إعلانية 20,000 ج">
+            <span class="option-label"><input type="radio" name="media-budget" value="20000"> 20,000 ج</span>
+            <span class="option-price">20,000 ج.م</span>
+          </label>
+          <label class="radio-option" data-price="50000" data-name="ميزانية إعلانية 50,000 ج">
+            <span class="option-label"><input type="radio" name="media-budget" value="50000"> 50,000 ج</span>
+            <span class="option-price">50,000 ج.م</span>
+          </label>
+        </div>
+
+        <div class="note-box" style="margin-top:15px;">
+          <i class="fa-solid fa-circle-info"></i>
+          الميزانية الإعلانية لا تدخل ضمن أتعاب الإدارة. النسبة 20% تُحسب على الميزانية الأكبر من 5,000 ج.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Summary Box -->
+    <div class="summary-box">
+      <h3>ملخص التكلفة</h3>
+      <div class="summary-list" id="summaryList">
+        <p class="empty-msg">اختر الخدمات عشان تشوف التفاصيل هنا</p>
+      </div>
+      <div class="summary-total">
+        <span>الإجمالي</span>
+        <div class="total-amount" id="totalAmount">0 <small>ج.م</small></div>
+      </div>
+      <a href="#" id="whatsappCalcBtn" target="_blank" class="btn-whatsapp-calc">
+        <i class="fa-brands fa-whatsapp"></i> اطلب هذه الباقة الآن
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const WHATSAPP_NUMBER = '201554579501';
+
+  /* ===== Main Tabs ===== */
+  document.querySelectorAll('.main-tab-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.main-tab-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.pricing-group').forEach(g=>g.classList.remove('active'));
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({top: 200, behavior: 'smooth'});
+    });
+  });
+
+  /* ===== Sub Tabs (Standalone) ===== */
+  document.querySelectorAll('.sub-tab-btn[data-sub]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.sub-tab-btn[data-sub]').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.sub-pricing-group').forEach(g=>g.classList.remove('active'));
+      document.getElementById(btn.dataset.sub).classList.add('active');
+    });
+  });
+
+  /* ===== Calculator Sub Tabs ===== */
+  document.querySelectorAll('.sub-tab-btn[data-calc]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.sub-tab-btn[data-calc]').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('calc-design-calc').style.display = btn.dataset.calc === 'design-calc' ? 'block' : 'none';
+      document.getElementById('calc-media-calc').style.display = btn.dataset.calc === 'media-calc' ? 'block' : 'none';
+      calculateTotal();
+    });
+  });
+
+  /* ===== Direct Order from Pricing Cards ===== */
+  function orderPackage(packageName, price){
+    const message = `مرحباً، أرغب في طلب:%0A%0A📦 الباقة: ${packageName}%0A💰 التكلفة: ${price} ج.م%0A%0Aأرجو تأكيد التفاصيل.`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+  }
+
+  /* ===== Custom Form Submission ===== */
+  function sendCustomToWhatsapp(e){
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    let message = `🌟 *طلب باقة مخصصة*%0A%0A`;
+    message += `🏥 اسم المكان: ${data.get('placeName')}%0A`;
+    message += `👨‍⚕️ اسم الطبيب: ${data.get('doctorName')}%0A`;
+    message += `📱 رقم الجوال: ${data.get('phone')}%0A%0A`;
+    message += `━━━━━━━━━━━━━━━━━%0A`;
+    message += `📋 *تفاصيل الباقة المطلوبة:*%0A`;
+    message += `• عدد التصميمات: ${data.get('designsCount')}%0A`;
+    message += `• عدد الريلز: ${data.get('reelsCount')}%0A`;
+    message += `• عدد المنصات: ${data.get('platforms')}%0A`;
+    message += `• الهدف: ${data.get('goal')}%0A`;
+    if(data.get('notes')){
+      message += `%0A📝 ملاحظات: ${data.get('notes')}%0A`;
+    }
+    message += `%0A⏳ في انتظار تأكيدكم للبدء.`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+    return false;
+  }
+
+  /* ===== Calculator Logic ===== */
+  const summaryList = document.getElementById('summaryList');
+  const totalAmount = document.getElementById('totalAmount');
+  const whatsappBtn = document.getElementById('whatsappCalcBtn');
+
+  function calculateTotal(){
+    const activeCalc = document.querySelector('.sub-tab-btn[data-calc].active').dataset.calc;
+    const container = document.getElementById('calc-' + activeCalc);
+
+    let total = 0;
+    let items = [];
+    let mediaCommission = 0;
+
+    // Base package
+    const baseSelected = container.querySelector('input[type="radio"]:checked');
+    if(baseSelected){
+      const baseLabel = baseSelected.closest('.radio-option');
+      const baseName = baseLabel.querySelector('.option-label').textContent.trim();
+      let basePrice = parseInt(baseSelected.value);
+      
+      // For media: if > 5000 budget selected, calculate 20% commission
+      if(activeCalc === 'media-calc' && baseLabel.dataset.name && baseLabel.dataset.name.includes('أكبر من 5,000')){
+        // Will be calculated after budget selection
+      } else {
+        total += basePrice;
+        items.push({name: baseName, price: basePrice});
+      }
+      baseLabel.classList.add('selected');
+    }
+
+    container.querySelectorAll('.radio-option').forEach(r=>{
+      if(!r.querySelector('input').checked) r.classList.remove('selected');
+    });
+
+    // Special: Media buying calculation
+    if(activeCalc === 'media-calc'){
+      const baseRadio = container.querySelector('input[name="media-base-calc"]:checked');
+      const budgetRadio = container.querySelector('input[name="media-budget"]:checked');
+      
+      if(baseRadio && budgetRadio){
+        const budget = parseInt(budgetRadio.value);
+        const baseLabel = baseRadio.closest('.radio-option');
+        
+        // Reset
+        total = 0;
+        items = [];
+        
+        if(budget < 5000){
+          // Fixed 1500
+          total = 1500;
+          items.push({name: 'رسوم إدارة الحملة', price: 1500});
+        } else {
+          // 20% of budget
+          const commission = Math.round(budget * 0.20);
+          total = commission;
+          items.push({name: `رسوم إدارة (20% من ${budget.toLocaleString()})`, price: commission});
+        }
+        
+        // Add budget as separate line (not in total)
+        items.push({name: 'الميزانية الإعلانية (تُدفع لفيسبوك)', price: budget, isBudget: true});
+      }
+    } else {
+      // Design addons
+      const checkedAddons = container.querySelectorAll('.design-addon-calc:checked');
+      checkedAddons.forEach(addon=>{
+        const label = addon.closest('.check-option');
+        const name = label.dataset.name;
+        const price = parseInt(addon.value);
+        total += price;
+        items.push({name: name, price: price});
+        label.classList.add('selected');
+      });
+
+      container.querySelectorAll('.check-option').forEach(c=>{
+        if(!c.querySelector('input').checked) c.classList.remove('selected');
+      });
+    }
+
+    // Update Summary
+    if(items.length === 0){
+      summaryList.innerHTML = '<p class="empty-msg">اختر الخدمات عشان تشوف التفاصيل هنا</p>';
+    } else {
+      summaryList.innerHTML = items.map(item => {
+        const priceColor = item.isBudget ? '#cfd8d6' : 'var(--yellow)';
+        return `
+        <div class="summary-item">
+          <span>${item.name}</span>
+          <span style="color:${item.isBudget ? '#cfd8d6' : 'var(--yellow)'}">${item.price.toLocaleString()} ج.م</span>
+        </div>`;
+      }).join('');
+    }
+
+    totalAmount.innerHTML = total.toLocaleString() + ' <small>ج.م</small>';
+
+    // Update WhatsApp link
+    let serviceType = activeCalc === 'design-calc' ? 'باقة تصميم' : 'باقة إدارة حملات إعلانية';
+    let message = `مرحباً، أرغب في طلب ${serviceType} مخصصة:%0A%0A`;
+    
+    // Filter out budget from items for message (or include it)
+    items.forEach(item => {
+      const label = item.isBudget ? '(ميزانية إعلانية)' : '';
+      message += `• ${item.name} ${label}: ${item.price.toLocaleString()} ج.م%0A`;
+    });
+    message += `%0A💰 *إجمالي أتعاب الإدارة: ${total.toLocaleString()} ج.م*`;
+
+    whatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+  }
+
+  // Event listeners
+  document.querySelectorAll('.calc-group input').forEach(input=>{
+    input.addEventListener('change', calculateTotal);
+  });
+
+  calculateTotal();
+</script>
+
+</body>
+</html>
+ 

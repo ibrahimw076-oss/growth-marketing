@@ -1,0 +1,1387 @@
+ <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كورساتنا | ميديا ماركتيرز</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  :root{
+    --yellow: #ffefb3;
+    --dark-green: #013e37;
+    --white: #ffffff;
+    --gray-text: #667;
+    --red: #e74c3c;
+    --light-bg: #f8f9f8;
+    --whatsapp: #25D366;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{
+    font-family:'Cairo', sans-serif;
+    background: var(--light-bg);
+    color: var(--dark-green);
+    line-height: 1.6;
+  }
+  ul{ list-style:none; }
+  a{ text-decoration:none; }
+  /* ===== Navbar ===== */
+  .navbar{
+    background: var(--white);
+    padding: 15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:999;
+    transition: background 0.4s;
+  }
+  .logo img{
+    height: 42px;
+    width: auto;
+    display: block;
+  }
+
+  .navbar ul{
+    display:flex;
+    gap:30px;
+  }
+  .navbar ul li a{
+    color: var(--dark-green);
+    font-weight:600;
+    transition:0.3s;
+  }
+  .navbar ul li a:hover,
+  .navbar ul li a.active{
+    color:#e74c3c;
+  }
+
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+  }
+
+  .theme-toggle{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--dark-green);
+    background: transparent;
+    color: var(--dark-green);
+    font-size: 18px;
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: 0.3s;
+  }
+  .theme-toggle:hover{
+    background: var(--dark-green);
+    color: var(--yellow);
+  }
+
+  .btn-cta{
+    background: var(--yellow);
+    color: var(--dark-green);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight:700;
+    transition:0.3s;
+    border:2px solid var(--yellow);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .btn-cta:hover{
+    background: var(--dark-green);
+    color: var(--yellow);
+    border-color: var(--dark-green);
+  }
+
+  /* ===== Page Header ===== */
+  .page-header{
+    background: var(--dark-green);
+    text-align:center;
+    padding: 80px 5% 80px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before{
+    content:'';
+    position:absolute;
+    top:-50px; right:-50px;
+    width:250px; height:250px;
+    background: var(--yellow);
+    border-radius:50%;
+    opacity:0.1;
+  }
+  .page-header::after{
+    content:'';
+    position:absolute;
+    bottom:-100px; left:-100px;
+    width:300px; height:300px;
+    background: var(--yellow);
+    border-radius:50%;
+    opacity:0.08;
+  }
+  .page-header h1{
+    font-size:42px;
+    font-weight:900;
+    margin-bottom:15px;
+    position:relative;
+  }
+  .page-header h1 span{ color: var(--yellow); }
+  .page-header p{
+    color:#cfd8d6;
+    max-width:650px;
+    margin:0 auto;
+    font-size:16px;
+    position:relative;
+  }
+
+  /* ===== Courses Section ===== */
+  .courses-section{
+    padding: 60px 5% 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .course-card{
+    background: var(--white);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    position: relative;
+  }
+  .course-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  }
+  @media(max-width:900px){
+    .course-card{ grid-template-columns: 1fr; }
+  }
+
+  /* Limited Badge */
+  .limited-badge{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--red);
+    color: var(--white);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: pulse 2s infinite;
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
+  }
+  @keyframes pulse{
+    0%, 100%{ transform: scale(1); }
+    50%{ transform: scale(1.05); }
+  }
+  .limited-badge i{ animation: blink 1.5s infinite; }
+  @keyframes blink{
+    0%, 100%{ opacity: 1; }
+    50%{ opacity: 0.4; }
+  }
+
+  /* Left Side - Info */
+  .course-info{
+    padding: 50px 40px;
+  }
+  .course-tag{
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark-green);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  .course-info h2{
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom:15px;
+    line-height: 1.3;
+  }
+  .course-info .description{
+    color: var(--gray-text);
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  /* Chapters Accordion */
+  .chapters-title{
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--dark-green);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .chapters-title i{ color: var(--red); }
+
+  .chapter{
+    background: var(--light-bg);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+  .chapter:hover{ background: #eafaf7; }
+  .chapter-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    cursor: pointer;
+    gap: 10px;
+  }
+  .chapter-num{
+    background: var(--dark-green);
+    color: var(--yellow);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .chapter-name{
+    flex-grow: 1;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .chapter-toggle{
+    color: var(--dark-green);
+    font-size: 12px;
+    transition: 0.3s;
+  }
+  .chapter.open .chapter-toggle{ transform: rotate(180deg); }
+  .chapter-content{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 15px;
+  }
+  .chapter.open .chapter-content{
+    max-height: 200px;
+    padding: 0 15px 12px 50px;
+  }
+  .chapter-content p{
+    font-size: 12px;
+    color: var(--gray-text);
+    line-height: 1.6;
+  }
+
+  /* What you'll learn */
+  .learn-list{
+    margin: 15px 0 20px;
+  }
+  .learn-list li{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--dark-green);
+  }
+  .learn-list li i{
+    color: #27ae60;
+    font-size: 14px;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  /* Price Section */
+  .price-box{
+    background: linear-gradient(135deg, var(--dark-green) 0%, #025448 100%);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .price-left{
+    display: flex;
+    flex-direction: column;
+  }
+  .price-old{
+    color: #cfd8d6;
+    text-decoration: line-through;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .price-new{
+    color: var(--yellow);
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+  .price-new small{
+    font-size: 14px;
+    font-weight: 400;
+    color: #cfd8d6;
+    display: block;
+  }
+  .save-badge{
+    background: var(--red);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  /* Stats */
+  .course-stats{
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    flex-wrap: wrap;
+  }
+  .stat-item{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray-text);
+    font-size: 13px;
+  }
+  .stat-item i{ color: var(--dark-green); }
+  .stat-item .num{ font-weight: 800; color: var(--dark-green); }
+
+  /* Right Side - Form */
+  .course-form-side{
+    background: linear-gradient(135deg, #f0f7f6 0%, #e8f5f3 100%);
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .form-header{
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .form-header .icon-circle{
+    width: 70px;
+    height: 70px;
+    background: var(--dark-green);
+    color: var(--yellow);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 30px;
+  }
+  .form-header h3{
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .form-header p{
+    color: var(--gray-text);
+    font-size: 14px;
+  }
+
+  .form-group{
+    margin-bottom: 15px;
+  }
+  .form-group label{
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: var(--dark-green);
+  }
+  .form-group label .req{ color: var(--red); }
+  .form-group label .opt{
+    color: #999;
+    font-weight: 400;
+    font-size: 12px;
+  }
+  .form-group input{
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    transition: 0.3s;
+    background: var(--white);
+    direction: ltr;
+    text-align: right;
+  }
+  .form-group input[name="name"]{
+    direction: rtl;
+    text-align: right;
+  }
+  .form-group input:focus{
+    outline: none;
+    border-color: var(--dark-green);
+  }
+  .form-group input::placeholder{ color: #aaa; }
+  .form-group input.invalid{
+    border-color: var(--red);
+    background: #fff5f5;
+  }
+  .error-msg{
+    color: var(--red);
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+  }
+  .error-msg.show{ display: block; }
+  .phone-hint{
+    color: #999;
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  .btn-download{
+    width: 100%;
+    background: var(--dark-green);
+    color: var(--yellow);
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .btn-download:hover{ background: #025448; transform: translateY(-2px); }
+  .btn-download:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-footer{
+    text-align: center;
+    margin-top: 15px;
+    color: var(--gray-text);
+    font-size: 12px;
+  }
+  .form-footer i{ color: #27ae60; margin-left: 5px; }
+
+  /* Success State */
+  .success-message{
+    text-align: center;
+    padding: 30px 20px;
+    display: none;
+  }
+  .success-message.show{ display: block; animation: fadeIn 0.5s ease; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+  .success-icon{
+    width: 80px;
+    height: 80px;
+    background: #27ae60;
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 40px;
+    animation: scaleIn 0.5s ease;
+  }
+  @keyframes scaleIn{ from{transform:scale(0);} to{transform:scale(1);} }
+  .success-message h3{
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--dark-green);
+    margin-bottom: 10px;
+  }
+  .success-message p{
+    color: var(--gray-text);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .success-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .btn-download-now{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--dark-green);
+    color: var(--yellow);
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 15px;
+    transition: 0.3s;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+  }
+  .btn-download-now:hover{ background: #025448; transform: translateY(-2px); }
+  
+  .btn-send-wa{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--whatsapp);
+    color: var(--white);
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 15px;
+    transition: 0.3s;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+  }
+  .btn-send-wa:hover{ background: #1eb854; transform: translateY(-2px); }
+
+  .data-preview{
+    background: var(--light-bg);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 15px;
+    text-align: right;
+    font-size: 13px;
+  }
+  .data-preview .row{
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .data-preview .row:last-child{ border-bottom: none; }
+  .data-preview .row strong{ color: var(--dark-green); }
+  .data-preview .row span{ color: var(--gray-text); }
+
+  /* Countdown */
+  .countdown-box{
+    background: rgba(231, 76, 60, 0.08);
+    border: 2px dashed var(--red);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    margin-top: 15px;
+  }
+  .countdown-box p{
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .countdown-timer{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  .countdown-item{
+    background: var(--red);
+    color: var(--white);
+    padding: 6px 10px;
+    border-radius: 8px;
+    min-width: 45px;
+    text-align: center;
+  }
+  .countdown-item .num{
+    display: block;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .countdown-item .unit{
+    display: block;
+    font-size: 10px;
+    margin-top: 2px;
+    opacity: 0.9;
+  }
+
+  /* Bonus Section */
+  .bonus-box{
+    background: var(--yellow);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 15px;
+    text-align: center;
+  }
+  .bonus-box h4{
+    color: var(--dark-green);
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+  .bonus-box p{
+    color: var(--dark-green);
+    font-size: 12px;
+    opacity: 0.8;
+  }
+
+  /* Why Free Section */
+  .why-section{
+    background: var(--white);
+    padding: 60px 5%;
+    margin: 0 auto 60px;
+    border-radius: 25px;
+    max-width: 1200px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  }
+  .why-title{
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .why-title h2{
+    font-size: 32px;
+    font-weight: 900;
+  }
+  .why-title p{ color: var(--gray-text); margin-top: 10px; }
+  .why-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+  }
+  .why-item{
+    text-align: center;
+    padding: 25px 15px;
+    background: var(--light-bg);
+    border-radius: 15px;
+    transition: 0.3s;
+  }
+  .why-item:hover{
+    transform: translateY(-5px);
+    background: var(--yellow);
+  }
+  .why-item i{
+    font-size: 40px;
+    color: var(--dark-green);
+    margin-bottom: 15px;
+  }
+  .why-item h4{
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .why-item p{
+    color: var(--gray-text);
+    font-size: 13px;
+  }
+
+  /* Hidden */
+  .hidden{ display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a href="#home" class="logo">
+      <img src="images/dark.png" alt="Growth Marketing" id="logoImg">
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="#home" class="nav-link">الرئيسية</a></li>
+         <li><a href="bundel.html" class="nav-link">الباقات</a></li>
+        <li><a href="courses.html" class="nav-link">كورساتنا</a></li>
+      </ul>
+    <div class="nav-right">
+      <button id="themeToggle" class="theme-toggle" title="تبديل الوضع">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <a href="https://wa.me/201554579501?text=مرحباً، أرغب في الحصول على استشارة طبية مجانية" 
+         target="_blank" class="btn-cta">
+         <i class="fa-brands fa-whatsapp"></i> احصل على استشارة
+      </a>
+    </div>
+  </nav>
+<!-- Page Header -->
+<div class="page-header">
+  <h1>كورس <span>التسويق الطبي</span></h1>
+  <p>دليل عملي بالعربي لتحويل السوشيال ميديا لعيادتك أو مركزك الطبي لحجوزات حقيقية - من أول صفحة لحملة إعلانية ناجحة</p>
+</div>
+
+<!-- Courses Section -->
+<div class="courses-section">
+
+  <!-- Course Card -->
+  <div class="course-card">
+
+    <span class="limited-badge">
+      <i class="fa-solid fa-fire"></i> لفترة محدودة
+    </span>
+
+    <!-- Left: Info -->
+    <div class="course-info">
+      <span class="course-tag">📚 كورس PDF - 21 صفحة</span>
+      <h2>دليل التسويق الطبي الشامل</h2>
+      <p class="description">
+        6 فصول عملية بالعامية المصرية، مع تمرين تطبيقي في آخر كل فصل، هتاخد من الصفر للاحتراف في تسويق عيادتك على السوشيال ميديا.
+      </p>
+
+      <!-- Chapters -->
+      <div class="chapters-title">
+        <i class="fa-solid fa-book"></i> محتويات الكورس (6 فصول):
+      </div>
+
+      <div class="chapter" onclick="toggleChapter(this)">
+        <div class="chapter-header">
+          <span class="chapter-num">1</span>
+          <span class="chapter-name">بناء صفحة طبية احترافية</span>
+          <i class="fa-solid fa-chevron-down chapter-toggle"></i>
+        </div>
+        <div class="chapter-content">
+          <p>التموضع، البايو، زر الحجز، وقايمة الجاهزية قبل أول إعلان + تمرين تطبيقي.</p>
+        </div>
+      </div>
+
+      <div class="chapter" onclick="toggleChapter(this)">
+        <div class="chapter-header">
+          <span class="chapter-num">2</span>
+          <span class="chapter-name">أنواع المحتوى اللي بيجيب حجوزات</span>
+          <i class="fa-solid fa-chevron-down chapter-toggle"></i>
+        </div>
+        <div class="chapter-content">
+          <p>٥ أعمدة محتوى، تقويم أسبوعي، وقوالب بوستات وهوكس جاهزة + تمرين تطبيقي.</p>
+        </div>
+      </div>
+
+      <div class="chapter" onclick="toggleChapter(this)">
+        <div class="chapter-header">
+          <span class="chapter-num">3</span>
+          <span class="chapter-name">إعلانات الحجز على فيسبوك</span>
+          <i class="fa-solid fa-chevron-down chapter-toggle"></i>
+        </div>
+        <div class="chapter-content">
+          <p>الهدف، الجمهور، معادلة الميزانية، قالب نص الإعلان، وجدول التحسين + تمرين تطبيقي.</p>
+        </div>
+      </div>
+
+      <div class="chapter" onclick="toggleChapter(this)">
+        <div class="chapter-header">
+          <span class="chapter-num">4</span>
+          <span class="chapter-name">الرد على الرسايل</span>
+          <i class="fa-solid fa-chevron-down chapter-toggle"></i>
+        </div>
+        <div class="chapter-content">
+          <p>١٠ سكريبتات جاهزة (السعر، المتابعة، التذكير، التقييم) وردود على الاعتراضات + تمرين تطبيقي.</p>
+        </div>
+      </div>
+
+      <div class="chapter" onclick="toggleChapter(this)">
+        <div class="chapter-header">
+          <span class="chapter-num">5</span>
+          <span class="chapter-name">قياس النتايج</span>
+          <i class="fa-solid fa-chevron-down chapter-toggle"></i>
+        </div>
+        <div class="chapter-content">
+          <p>المقاييس المهمة، مثال حسابي، جدول متابعة، ومراجعة أسبوعية + تمرين تطبيقي.</p>
+        </div>
+      </div>
+
+      <div class="chapter" onclick="toggleChapter(this)">
+        <div class="chapter-header">
+          <span class="chapter-num">6</span>
+          <span class="chapter-name">الضوابط المهنية</span>
+          <i class="fa-solid fa-chevron-down chapter-toggle"></i>
+        </div>
+        <div class="chapter-content">
+          <p>خصوصية المريض، الممنوع والمسموح، سياسات فيسبوك، وقايمة فحص قبل أي نشر + تمرين تطبيقي.</p>
+        </div>
+      </div>
+
+      <!-- What you'll learn -->
+      <ul class="learn-list">
+        <li><i class="fa-solid fa-check-circle"></i> <span>21 صفحة محتوى عملي جاهز للتطبيق</span></li>
+        <li><i class="fa-solid fa-check-circle"></i> <span>6 تمارين تطبيقية في آخر كل فصل</span></li>
+        <li><i class="fa-solid fa-check-circle"></i> <span>سكريبتات وقوالب جاهزة للحجز والردود</span></li>
+        <li><i class="fa-solid fa-check-circle"></i> <span>مناسب لأطباء العيادات والمراكز الطبية</span></li>
+      </ul>
+
+      <!-- Price Box -->
+      <div class="price-box">
+        <div class="price-left">
+          <span class="price-old">500 ج.م</span>
+          <span class="price-new">مجاناً!<small>لفترة محدودة فقط</small></span>
+        </div>
+        <span class="save-badge">وفر 100%</span>
+      </div>
+
+      <!-- Stats -->
+      <div class="course-stats">
+        <div class="stat-item">
+          <i class="fa-solid fa-file-pdf"></i>
+          <span>21 صفحة PDF</span>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-download"></i>
+          <span>تم تحميله <span class="num" id="downloadCount">1247</span> مرة</span>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-star" style="color:#f39c12;"></i>
+          <span>تقييم 4.9/5</span>
+        </div>
+        <div class="stat-item">
+          <i class="fa-solid fa-language"></i>
+          <span>بالعامية المصرية</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="course-form-side">
+      
+      <!-- Form State -->
+      <div id="formState">
+        <div class="form-header">
+          <div class="icon-circle">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <h3>حمّل الكورس مجاناً</h3>
+          <p>سجل بياناتك وابدأ رحلتك في التسويق الطبي</p>
+        </div>
+
+        <form id="downloadForm" onsubmit="return handleDownload(event)">
+          
+          <div class="form-group">
+            <label>الاسم الكامل <span class="req">*</span></label>
+            <input type="text" name="name" id="nameInput" required placeholder="اكتب اسمك بالكامل">
+            <div class="error-msg" id="nameError">من فضلك اكتب اسمك (3 حروف على الأقل)</div>
+          </div>
+
+          <div class="form-group">
+            <label>رقم الجوال (واتساب) <span class="req">*</span></label>
+            <input type="tel" name="phone" id="phoneInput" required placeholder="01xxxxxxxxx" maxlength="11">
+            <div class="phone-hint">مثال: 01012345678 (11 رقم)</div>
+            <div class="error-msg" id="phoneError">رقم الجوال غير صحيح. لازم يكون 11 رقم ويبدأ بـ 01</div>
+          </div>
+
+          <div class="form-group">
+            <label>لينك صفحة الفيسبوك <span class="opt">(اختياري)</span></label>
+            <input type="url" name="facebook" id="facebookInput" placeholder="https://facebook.com/yourpage">
+            <div class="error-msg" id="facebookError">لينك الفيسبوك غير صحيح</div>
+          </div>
+
+          <button type="submit" class="btn-download" id="submitBtn">
+            <i class="fa-solid fa-download"></i> حمّل الكورس مجاناً الآن
+          </button>
+
+          <div class="form-footer">
+            <i class="fa-solid fa-shield-halved"></i>
+            بياناتك آمنة معنا ولن يتم مشاركتها
+          </div>
+        </form>
+
+        <!-- Bonus -->
+        <div class="bonus-box">
+          <h4>🎁 بونص إضافي</h4>
+          <p>عند التحميل هتستلم قايمة فحص قبل النشر مجاناً</p>
+        </div>
+
+        <!-- Countdown -->
+        <div class="countdown-box">
+          <p><i class="fa-solid fa-clock"></i> العرض المجاني ينتهي خلال:</p>
+          <div class="countdown-timer" id="countdown">
+            <div class="countdown-item">
+              <span class="num" id="days">02</span>
+              <span class="unit">يوم</span>
+            </div>
+            <div class="countdown-item">
+              <span class="num" id="hours">14</span>
+              <span class="unit">ساعة</span>
+            </div>
+            <div class="countdown-item">
+              <span class="num" id="minutes">37</span>
+              <span class="unit">دقيقة</span>
+            </div>
+            <div class="countdown-item">
+              <span class="num" id="seconds">52</span>
+              <span class="unit">ثانية</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success State -->
+      <!-- <div class="success-message" id="successState">
+        <div class="success-icon">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3>مبروك! 🎉</h3>
+        <p>تم تسجيلك بنجاح. اضغط على الزر التالي لتحميل الكورس</p>
+        
+        <div class="success-buttons">
+          <a href="medical-marketing-course.pdf" id="pdfDownloadLink" class="btn-download-now" download>
+            <i class="fa-solid fa-file-pdf"></i> تحميل الكورس الآن
+          </a>
+          <button onclick="sendToWhatsapp()" class="btn-send-wa" id="sendWaBtn">
+             <i class="fa-brands fa-whatsapp"></i> إرسال بياناتي للواتساب -->
+              <!-- <input type="hidden" name="access_key" value="53638d67-d288-4213-9749-8e03fe242bae">
+
+          </button>
+        </div> -->
+<!-- Hidden Form (حطه قبل </body> مباشرة) -->
+<form id="web3formsForm" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="53638d67-d288-4213-9749-8e03fe242bae">
+  <input type="hidden" name="subject" value="🎓 تسجيل جديد في الكورس">
+  <input type="hidden" name="from_name" value="نموذج الموقع">
+  <input type="hidden" name="redirect" value="false">
+  <input type="text" name="name" id="w3formsName">
+  <input type="text" name="phone" id="w3formsPhone">
+  <input type="text" name="facebook" id="w3formsFacebook">
+</form>
+        <!-- Data Preview -->
+        <div class="data-preview" id="dataPreview">
+          <div class="row">
+            <strong>الاسم:</strong>
+            <span id="previewName">-</span>
+          </div>
+          <div class="row">
+            <strong>الجوال:</strong>
+            <span id="previewPhone">-</span>
+          </div>
+          <div class="row">
+            <strong>الفيسبوك:</strong>
+            <span id="previewFacebook">-</span>
+          </div>
+        </div>
+
+        <p style="margin-top: 20px; font-size: 13px; color: var(--gray-text);">
+          <i class="fa-solid fa-circle-check" style="color:#27ae60;"></i>
+          الملف جاهز - 21 صفحة PDF
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Why Free Section -->
+<div class="why-section">
+  <div class="why-title">
+    <h2>ليه الكورس <span style="color: var(--red);">مجاني؟</span></h2>
+    <p>إحنا بنؤمن إن الأطباء يستحقوا أدوات احترافية تساعدهم على النجاح</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <i class="fa-solid fa-handshake"></i>
+      <h4>بناء ثقة</h4>
+      <p>عشان نتعرف على بعض ونبني علاقة عمل طويلة الأمد</p>
+    </div>
+    <div class="why-item">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <h4>تعليم وتطوير</h4>
+      <p>نؤمن بأهمية نشر المعرفة في المجال الطبي</p>
+    </div>
+    <div class="why-item">
+      <i class="fa-solid fa-rocket"></i>
+      <h4>إطلاق خدماتنا</h4>
+      <p>عشان تجرب جودة شغلنا وتختارنا شريك في النجاح</p>
+    </div>
+    <div class="why-item">
+      <i class="fa-solid fa-clock"></i>
+      <h4>لفترة محدودة</h4>
+      <p>العرض لفترة محدودة، بعدين هيرجع بسعره الأصلي 500 ج</p>
+    </div>
+  </div>
+</div>
+
+<!-- <script>
+  /* ===== Constants ===== */
+  const ADMIN_WHATSAPP = '201554579501'; // الرقم اللي هيستقبل البيانات
+  
+  /* ===== Validation Patterns ===== */
+  const PATTERNS = {
+    phone: /^01[0125][0-9]{8}$/,
+    facebook: /^https?:\/\/(www\.)?facebook\.com\/[a-zA-Z0-9._-]+\/?$/,
+    name: /^[\u0600-\u06FFa-zA-Z\s]{3,}$/
+  };
+
+  /* ===== Store user data globally ===== */
+  let userData = {
+    name: '',
+    phone: '',
+    facebook: ''
+  };
+
+  /* ===== Toggle Chapter Accordion ===== */
+  function toggleChapter(el){
+    el.classList.toggle('open');
+  }
+
+  /* ===== Real-time Phone formatting (numbers only) ===== */
+  const phoneInput = document.getElementById('phoneInput');
+  phoneInput.addEventListener('input', function(e){
+    let value = e.target.value.replace(/[^0-9]/g, '');
+    if(value.length > 11) value = value.slice(0, 11);
+    e.target.value = value;
+    document.getElementById('phoneError').classList.remove('show');
+    e.target.classList.remove('invalid');
+  });
+
+  /* ===== Real-time validation on blur ===== */
+  const nameInput = document.getElementById('nameInput');
+  nameInput.addEventListener('blur', function(){
+    const value = this.value.trim();
+    if(value && !PATTERNS.name.test(value)){
+      this.classList.add('invalid');
+      document.getElementById('nameError').classList.add('show');
+    } else {
+      this.classList.remove('invalid');
+      document.getElementById('nameError').classList.remove('show');
+    }
+  });
+  nameInput.addEventListener('input', function(){
+    this.classList.remove('invalid');
+    document.getElementById('nameError').classList.remove('show');
+  });
+
+  const facebookInput = document.getElementById('facebookInput');
+  facebookInput.addEventListener('blur', function(){
+    const value = this.value.trim();
+    if(value && !PATTERNS.facebook.test(value)){
+      this.classList.add('invalid');
+      document.getElementById('facebookError').classList.add('show');
+    } else {
+      this.classList.remove('invalid');
+      document.getElementById('facebookError').classList.remove('show');
+    }
+  });
+  facebookInput.addEventListener('input', function(){
+    this.classList.remove('invalid');
+    document.getElementById('facebookError').classList.remove('show');
+  });
+
+  phoneInput.addEventListener('blur', function(){
+    const value = this.value.trim();
+    if(value && !PATTERNS.phone.test(value)){
+      this.classList.add('invalid');
+      document.getElementById('phoneError').classList.add('show');
+    } else {
+      this.classList.remove('invalid');
+      document.getElementById('phoneError').classList.remove('show');
+    }
+  });
+
+  /* ===== Form Submission ===== */
+  function handleDownload(e){
+    e.preventDefault();
+    const submitBtn = document.getElementById('submitBtn');
+
+    const name = document.getElementById('nameInput').value.trim();
+    const phone = document.getElementById('phoneInput').value.trim();
+    const facebook = document.getElementById('facebookInput').value.trim();
+
+    let isValid = true;
+
+    if(!name || !PATTERNS.name.test(name)){
+      nameInput.classList.add('invalid');
+      document.getElementById('nameError').classList.add('show');
+      isValid = false;
+    }
+
+    if(!phone || !PATTERNS.phone.test(phone)){
+      phoneInput.classList.add('invalid');
+      document.getElementById('phoneError').classList.add('show');
+      isValid = false;
+    }
+
+    if(facebook && !PATTERNS.facebook.test(facebook)){
+      facebookInput.classList.add('invalid');
+      document.getElementById('facebookError').classList.add('show');
+      isValid = false;
+    }
+
+    if(!isValid){
+      submitBtn.style.animation = 'shake 0.5s';
+      setTimeout(()=> submitBtn.style.animation = '', 500);
+      return false;
+    }
+
+
+
+    
+    // Save user data
+    userData = { name, phone, facebook: facebook || 'لم يدخل لينك' };
+
+    // Disable button & show loading
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري المعالجة...';
+
+    // Log data
+    console.log('✅ New Registration:', userData);
+
+    setTimeout(() => {
+      // Show success state
+      document.getElementById('formState').classList.add('hidden');
+      document.getElementById('successState').classList.add('show');
+
+      // Fill preview
+      document.getElementById('previewName').textContent = userData.name;
+      document.getElementById('previewPhone').textContent = userData.phone;
+      document.getElementById('previewFacebook').textContent = userData.facebook;
+
+      // Increment download counter
+      const counter = document.getElementById('downloadCount');
+      const currentVal = parseInt(counter.textContent.replace(/,/g, ''));
+      counter.textContent = (currentVal + 1).toLocaleString();
+
+      // Save to localStorage
+      saveRegistration(userData);
+
+    }, 1500);
+
+    return false;
+  }
+
+  /* ===== Send to WhatsApp ===== */
+  function sendToWhatsapp(){
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('ar-EG', { 
+      year: 'numeric', month: 'long', day: 'numeric' 
+    });
+    const timeStr = now.toLocaleTimeString('ar-EG', { 
+      hour: '2-digit', minute: '2-digit' 
+    });
+
+    let message = `🎓 *تسجيل جديد في الكورس المجاني*%0A%0A`;
+    message += `━━━━━━━━━━━━━━━━━━━━%0A`;
+    message += `👤 *الاسم:* ${userData.name}%0A`;
+    message += `📱 *رقم الجوال:* ${userData.phone}%0A`;
+    message += `🔗 *صفحة الفيسبوك:* ${userData.facebook}%0A`;
+    message += `━━━━━━━━━━━━━━━━━━━━%0A%0A`;
+    message += `📅 *التاريخ:* ${dateStr}%0A`;
+    message += `🕐 *الوقت:* ${timeStr}%0A%0A`;
+    message += `✅ تم تحميل كورس: *دليل التسويق الطبي الشامل*`;
+
+    // Open WhatsApp
+    window.open(`https://wa.me/${ADMIN_WHATSAPP}?text=${message}`, '_blank');
+  }
+
+  /* ===== Save to localStorage ===== */
+  function saveRegistration(data){
+    const registrations = JSON.parse(localStorage.getItem('courseRegistrations') || '[]');
+    registrations.push({
+      ...data,
+      timestamp: new Date().toISOString()
+    });
+    localStorage.setItem('courseRegistrations', JSON.stringify(registrations));
+  }
+
+  /* ===== Countdown Timer ===== */
+  function startCountdown(){
+    const endDate = new Date();
+    endDate.setDate(endDate.getDate() + 2);
+    endDate.setHours(endDate.getHours() + 14);
+
+    function update(){
+      const now = new Date().getTime();
+      const diff = endDate.getTime() - now;
+
+      if(diff <= 0){
+        document.getElementById('countdown').innerHTML = '<p style="color:var(--red); font-weight:800;">انتهى العرض المجاني!</p>';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
+
+  startCountdown();
+
+  /* ===== Shake animation keyframes ===== */
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+  `;
+  document.head.appendChild(style);
+</script> -->
+# ⚠️ في مشكلة في الكود اللي بعته!
+
+## ❌ المشكلة:
+أنت حطيت **input access_key جوه button** - وده غلط syntaxي!
+
+الـ `input` لازم يكون **جوه `<form>`** مش جوه `<button>`
+
+---
+
+## ✅ الكود الصح (3 خطوات بسيطة):
+
+### 1️⃣ أولاً: روح [web3forms.com](https://web3forms.com) وسجّل بإيميلك
+- هتلاقي **Access Key** في الـ Dashboard بعد التسجيل
+- الـ Key اللي بعته (`53638d67-...`) ده مش شغال لازم تسجل الأول
+
+### 2️⃣ ثانياً: حط الكود ده في الـ HTML
+
+```html
+<!-- Hidden Form (حطه قبل </body> مباشرة) -->
+<form id="web3formsForm" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="ضع_الـ_Key_بتاعك_هنا">
+  <input type="hidden" name="subject" value="🎓 تسجيل جديد في الكورس">
+  <input type="hidden" name="from_name" value="نموذج الموقع">
+  <input type="hidden" name="redirect" value="false">
+  <input type="text" name="name" id="w3formsName">
+  <input type="text" name="phone" id="w3formsPhone">
+  <input type="text" name="facebook" id="w3formsFacebook">
+</form>
+```
+
+### 3️⃣ ثالثاً: الكود في الـ JavaScript
+
+```html
+<script>
+/* ===== Configuration ===== */
+const ADMIN_WHATSAPP = '201554579501'; // رقمك
+
+const PATTERNS = {
+  phone: /^01[0125][0-9]{8}$/,
+  facebook: /^https?:\/\/(www\.)?facebook\.com\/[a-zA-Z0-9._-]+\/?$/,
+  name: /^[\u0600-\u06FFa-zA-Z\s]{3,}$/
+};
+
+let userData = { name: '', phone: '', facebook: '' };
+
+/* ===== Form Submission - AUTO SEND ===== */
+function handleDownload(e){
+  e.preventDefault();
+  const submitBtn = document.getElementById('submitBtn');
+
+  const name = document.getElementById('nameInput').value.trim();
+  const phone = document.getElementById('phoneInput').value.trim();
+  const facebook = document.getElementById('facebookInput').value.trim();
+
+  // Validation
+  let isValid = true;
+  if(!name || !PATTERNS.name.test(name)){
+    document.getElementById('nameError').classList.add('show');
+    isValid = false;
+  }
+  if(!phone || !PATTERNS.phone.test(phone)){
+    document.getElementById('phoneError').classList.add('show');
+    isValid = false;
+  }
+  if(facebook && !PATTERNS.facebook.test(facebook)){
+    document.getElementById('facebookError').classList.add('show');
+    isValid = false;
+  }
+
+  if(!isValid) return false;
+
+  userData = { name, phone, facebook: facebook || 'لم يدخل' };
+
+  // Disable button
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري الإرسال...';
+
+  console.log('✅ Registration:', userData);
+
+  /* ===== AUTO SEND IN BACKGROUND ===== */
+  sendViaWeb3Forms(name, phone, facebook);
+  saveToLocalStorage(userData);
+
+  /* ===== Show Success + Auto Download ===== */
+  setTimeout(() => {
+    document.getElementById('formState').classList.add('hidden');
+    document.getElementById('successState').classList.add('show');
+
+    // Auto download
+    setTimeout(() => {
+      document.getElementById('pdfDownloadLink').click();
+    }, 800);
+
+  }, 1500);
+
+  return false;
+}
+
+/* ===== Send via Web3Forms ===== */
+function sendViaWeb3Forms(name, phone, facebook){
+  // Fill hidden form fields
+  document.getElementById('w3formsName').value = name;
+  document.getElementById('w3formsPhone').value = phone;
+  document.getElementById('w3formsFacebook').value = facebook;
+
+  const form = document.getElementById('web3formsForm');
+  const formData = new FormData(form);
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log('✅ Web3Forms Response:', data);
+  })
+  .catch(err => {
+    console.log('❌ Web3Forms Error:', err);
+  });
+}
+
+/* ===== Save to localStorage ===== */
+function saveToLocalStorage(data){
+  try {
+    const regs = JSON.parse(localStorage.getItem('courseRegistrations') || '[]');
+    regs.push({...data, timestamp: new Date().toISOString()});
+    localStorage.setItem('courseRegistrations', JSON.stringify(regs));
+    console.log('✅ Saved to localStorage. Total:', regs.length);
+  } catch(e){
+    console.log('❌ localStorage error:', e);
+  }
+}
+</script>
+ 
+ 
+<input type="hidden" name="access_key" value="abc12345-6789-0def-ghij-klmnopqrstuv">
+ 
+</body>
+</html>
