@@ -3,8 +3,8 @@ const logoImg = document.getElementById('logoImg');
 const body = document.body;
 const icon = themeToggle.querySelector('i');
 
-const darkLogo = 'images/dark.png';
-const lightLogo = 'images/light.png';
+const darkLogo = 'dark.png';
+const lightLogo = 'light.png';
 
 if(localStorage.getItem('theme') === 'dark'){
   body.classList.add('dark-mode');
