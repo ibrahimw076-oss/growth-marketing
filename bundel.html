@@ -678,11 +678,208 @@
   /* Hidden */
   .hidden{ display:none !important; }
 
+  /* تخطيط الـNavbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.navbar .logo {
+  flex-shrink: 0;
+}
+
+.navbar .logo img {
+  display: block;
+  width: auto;
+  max-width: 180px;
+  max-height: 56px;
+  object-fit: contain;
+}
+
+.navbar .nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar .nav-links li {
+  flex-shrink: 0;
+}
+
+.navbar .nav-links .nav-link {
+  display: block;
+  white-space: nowrap;
+}
+
+.navbar .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* زر القائمة مخفي على الشاشات الكبيرة */
+.navbar .menu-toggle {
+  display: none;
+}
+
+/* القائمة على الموبايل والتابلت */
+@media (max-width: 1000px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo img {
+    max-width: 145px;
+    max-height: 46px;
+  }
+
+  .navbar .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 8px 13px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .navbar .nav-menu {
+    display: none;
+    order: 3;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    background: var(--nav-menu-bg, var(--bg-color, #fff));
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  }
+
+  .navbar .nav-menu.is-open {
+    display: flex;
+  }
+
+  .navbar .nav-menu .nav-links {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+
+  .navbar .nav-links li {
+    width: 100%;
+  }
+
+  .navbar .nav-links .nav-link {
+    width: 100%;
+    padding: 10px 12px;
+    white-space: normal;
+    border-radius: 8px;
+  }
+
+  .navbar .nav-links .nav-link:hover {
+    background: rgba(1, 62, 55, 0.07);
+  }
+
+  .navbar .nav-right {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar .btn-cta {
+    display: inline-flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-width: 0;
+  }
+}
 
 </style>
 </head>
 <body>
-<nav class="navbar">
+  <nav class="navbar" aria-label="القائمة الرئيسية">
+
+  <a href="index.html" class="logo">
+    <img src="images/dark.png" alt="Growth Marketing" id="logoImg">
+  </a>
+
+  <!-- زر القائمة يظهر على الشاشات الصغيرة -->
+  <button
+    type="button"
+    class="menu-toggle"
+    id="navMenuToggle"
+    aria-label="فتح القائمة"
+    aria-controls="mainNavMenu"
+    aria-expanded="false">
+    <i class="fa-solid fa-bars" id="navMenuIcon" aria-hidden="true"></i>
+    <span>القائمة</span>
+  </button>
+
+  <!-- روابط القائمة والأزرار -->
+  <div class="nav-menu" id="mainNavMenu">
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+      <li><a href="bundel.html" class="nav-link">الباقات</a></li>
+      <li><a href="courses.html" class="nav-link">كورساتنا</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button
+        type="button"
+        id="themeToggle"
+        class="theme-toggle"
+        title="تبديل الوضع"
+        aria-label="تبديل الوضع">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+      <a
+        href="https://wa.me/201554579501?text=مرحباً، أرغب في الحصول على استشارة طبية مجانية"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-cta">
+        <i class="fa-brands fa-whatsapp"></i>
+        احصل على استشارة
+      </a>
+    </div>
+  </div>
+
+</nav>
+<!-- <nav class="navbar">
     <a href="#home" class="logo">
       <img src="images/dark.png" alt="Growth Marketing" id="logoImg">
     </a>
@@ -701,7 +898,7 @@
          <i class="fa-brands fa-whatsapp"></i> احصل على استشارة
       </a>
     </div>
-  </nav>
+  </nav> -->
 
 <!-- Page Header -->
 <div class="page-header">
@@ -1205,188 +1402,9 @@
   </div>
 </div>
 
-<script>
-  const WHATSAPP_NUMBER = '201554579501';
-
-  /* ===== Main Tabs ===== */
-  document.querySelectorAll('.main-tab-btn').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      document.querySelectorAll('.main-tab-btn').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.pricing-group').forEach(g=>g.classList.remove('active'));
-      document.getElementById(btn.dataset.tab).classList.add('active');
-      window.scrollTo({top: 200, behavior: 'smooth'});
-    });
-  });
-
-  /* ===== Sub Tabs (Standalone) ===== */
-  document.querySelectorAll('.sub-tab-btn[data-sub]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      document.querySelectorAll('.sub-tab-btn[data-sub]').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.sub-pricing-group').forEach(g=>g.classList.remove('active'));
-      document.getElementById(btn.dataset.sub).classList.add('active');
-    });
-  });
-
-  /* ===== Calculator Sub Tabs ===== */
-  document.querySelectorAll('.sub-tab-btn[data-calc]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      document.querySelectorAll('.sub-tab-btn[data-calc]').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('calc-design-calc').style.display = btn.dataset.calc === 'design-calc' ? 'block' : 'none';
-      document.getElementById('calc-media-calc').style.display = btn.dataset.calc === 'media-calc' ? 'block' : 'none';
-      calculateTotal();
-    });
-  });
-
-  /* ===== Direct Order from Pricing Cards ===== */
-  function orderPackage(packageName, price){
-    const message = `مرحباً، أرغب في طلب:%0A%0A📦 الباقة: ${packageName}%0A💰 التكلفة: ${price} ج.م%0A%0Aأرجو تأكيد التفاصيل.`;
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
-  }
-
-  /* ===== Custom Form Submission ===== */
-  function sendCustomToWhatsapp(e){
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
-
-    let message = `🌟 *طلب باقة مخصصة*%0A%0A`;
-    message += `🏥 اسم المكان: ${data.get('placeName')}%0A`;
-    message += `👨‍⚕️ اسم الطبيب: ${data.get('doctorName')}%0A`;
-    message += `📱 رقم الجوال: ${data.get('phone')}%0A%0A`;
-    message += `━━━━━━━━━━━━━━━━━%0A`;
-    message += `📋 *تفاصيل الباقة المطلوبة:*%0A`;
-    message += `• عدد التصميمات: ${data.get('designsCount')}%0A`;
-    message += `• عدد الريلز: ${data.get('reelsCount')}%0A`;
-    message += `• عدد المنصات: ${data.get('platforms')}%0A`;
-    message += `• الهدف: ${data.get('goal')}%0A`;
-    if(data.get('notes')){
-      message += `%0A📝 ملاحظات: ${data.get('notes')}%0A`;
-    }
-    message += `%0A⏳ في انتظار تأكيدكم للبدء.`;
-
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
-    return false;
-  }
-
-  /* ===== Calculator Logic ===== */
-  const summaryList = document.getElementById('summaryList');
-  const totalAmount = document.getElementById('totalAmount');
-  const whatsappBtn = document.getElementById('whatsappCalcBtn');
-
-  function calculateTotal(){
-    const activeCalc = document.querySelector('.sub-tab-btn[data-calc].active').dataset.calc;
-    const container = document.getElementById('calc-' + activeCalc);
-
-    let total = 0;
-    let items = [];
-    let mediaCommission = 0;
-
-    // Base package
-    const baseSelected = container.querySelector('input[type="radio"]:checked');
-    if(baseSelected){
-      const baseLabel = baseSelected.closest('.radio-option');
-      const baseName = baseLabel.querySelector('.option-label').textContent.trim();
-      let basePrice = parseInt(baseSelected.value);
-      
-      // For media: if > 5000 budget selected, calculate 20% commission
-      if(activeCalc === 'media-calc' && baseLabel.dataset.name && baseLabel.dataset.name.includes('أكبر من 5,000')){
-        // Will be calculated after budget selection
-      } else {
-        total += basePrice;
-        items.push({name: baseName, price: basePrice});
-      }
-      baseLabel.classList.add('selected');
-    }
-
-    container.querySelectorAll('.radio-option').forEach(r=>{
-      if(!r.querySelector('input').checked) r.classList.remove('selected');
-    });
-
-    // Special: Media buying calculation
-    if(activeCalc === 'media-calc'){
-      const baseRadio = container.querySelector('input[name="media-base-calc"]:checked');
-      const budgetRadio = container.querySelector('input[name="media-budget"]:checked');
-      
-      if(baseRadio && budgetRadio){
-        const budget = parseInt(budgetRadio.value);
-        const baseLabel = baseRadio.closest('.radio-option');
-        
-        // Reset
-        total = 0;
-        items = [];
-        
-        if(budget < 5000){
-          // Fixed 1500
-          total = 1500;
-          items.push({name: 'رسوم إدارة الحملة', price: 1500});
-        } else {
-          // 20% of budget
-          const commission = Math.round(budget * 0.20);
-          total = commission;
-          items.push({name: `رسوم إدارة (20% من ${budget.toLocaleString()})`, price: commission});
-        }
-        
-        // Add budget as separate line (not in total)
-        items.push({name: 'الميزانية الإعلانية (تُدفع لفيسبوك)', price: budget, isBudget: true});
-      }
-    } else {
-      // Design addons
-      const checkedAddons = container.querySelectorAll('.design-addon-calc:checked');
-      checkedAddons.forEach(addon=>{
-        const label = addon.closest('.check-option');
-        const name = label.dataset.name;
-        const price = parseInt(addon.value);
-        total += price;
-        items.push({name: name, price: price});
-        label.classList.add('selected');
-      });
-
-      container.querySelectorAll('.check-option').forEach(c=>{
-        if(!c.querySelector('input').checked) c.classList.remove('selected');
-      });
-    }
-
-    // Update Summary
-    if(items.length === 0){
-      summaryList.innerHTML = '<p class="empty-msg">اختر الخدمات عشان تشوف التفاصيل هنا</p>';
-    } else {
-      summaryList.innerHTML = items.map(item => {
-        const priceColor = item.isBudget ? '#cfd8d6' : 'var(--yellow)';
-        return `
-        <div class="summary-item">
-          <span>${item.name}</span>
-          <span style="color:${item.isBudget ? '#cfd8d6' : 'var(--yellow)'}">${item.price.toLocaleString()} ج.م</span>
-        </div>`;
-      }).join('');
-    }
-
-    totalAmount.innerHTML = total.toLocaleString() + ' <small>ج.م</small>';
-
-    // Update WhatsApp link
-    let serviceType = activeCalc === 'design-calc' ? 'باقة تصميم' : 'باقة إدارة حملات إعلانية';
-    let message = `مرحباً، أرغب في طلب ${serviceType} مخصصة:%0A%0A`;
-    
-    // Filter out budget from items for message (or include it)
-    items.forEach(item => {
-      const label = item.isBudget ? '(ميزانية إعلانية)' : '';
-      message += `• ${item.name} ${label}: ${item.price.toLocaleString()} ج.م%0A`;
-    });
-    message += `%0A💰 *إجمالي أتعاب الإدارة: ${total.toLocaleString()} ج.م*`;
-
-    whatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
-  }
-
-  // Event listeners
-  document.querySelectorAll('.calc-group input').forEach(input=>{
-    input.addEventListener('change', calculateTotal);
-  });
-
-  calculateTotal();
+<script src="main.js">
 </script>
-
+<!-- <script src="main.js"></script> -->
 </body>
 </html>
  

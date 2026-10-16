@@ -704,12 +704,253 @@
 
   /* Hidden */
   .hidden{ display: none !important; }
+
+  /* تخطيط الـNavbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.navbar .logo {
+  flex-shrink: 0;
+}
+
+.navbar .logo img {
+  display: block;
+  width: auto;
+  max-width: 180px;
+  max-height: 56px;
+  object-fit: contain;
+}
+
+.navbar .nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar .nav-links li {
+  flex-shrink: 0;
+}
+
+.navbar .nav-links .nav-link {
+  display: block;
+  white-space: nowrap;
+}
+
+.navbar .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* زر القائمة مخفي على الشاشات الكبيرة */
+.navbar .menu-toggle {
+  display: none;
+}
+
+/* القائمة على الموبايل والتابلت */
+@media (max-width: 1000px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo img {
+    max-width: 145px;
+    max-height: 46px;
+  }
+
+  .navbar .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 8px 13px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .navbar .nav-menu {
+    display: none;
+    order: 3;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    background: var(--nav-menu-bg, var(--bg-color, #fff));
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  }
+
+  .navbar .nav-menu.is-open {
+    display: flex;
+  }
+
+  .navbar .nav-menu .nav-links {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+
+  .navbar .nav-links li {
+    width: 100%;
+  }
+
+  .navbar .nav-links .nav-link {
+    width: 100%;
+    padding: 10px 12px;
+    white-space: normal;
+    border-radius: 8px;
+  }
+
+  .navbar .nav-links .nav-link:hover {
+    background: rgba(1, 62, 55, 0.07);
+  }
+
+  .navbar .nav-right {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar .btn-cta {
+    display: inline-flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-width: 0;
+  }
+}
+
+
+
+
+/* منع الأعمدة والعناصر من توسيع صفحة الكورسات */
+.course-main {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+}
+
+.course-main > *,
+.hero-inner > * {
+  min-width: 0;
+}
+
+.chapter-item,
+.chapter-item > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  .course-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* حماية إضافية من ظهور مساحة خارج عرض الشاشة */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
 </style>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar">
+ <nav class="navbar" aria-label="القائمة الرئيسية">
+
+  <a href="index.html " class="logo">
+    <img src="images/dark.png" alt="Growth Marketing" id="logoImg">
+  </a>
+
+  <!-- زر القائمة يظهر على الشاشات الصغيرة -->
+  <button
+    type="button"
+    class="menu-toggle"
+    id="navMenuToggle"
+    aria-label="فتح القائمة"
+    aria-controls="mainNavMenu"
+    aria-expanded="false">
+    <i class="fa-solid fa-bars" id="navMenuIcon" aria-hidden="true"></i>
+    <span>القائمة</span>
+  </button>
+
+  <!-- روابط القائمة والأزرار -->
+  <div class="nav-menu" id="mainNavMenu">
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+       <li><a href="bundel.html" class="nav-link">الباقات</a></li>
+      <li><a href="courses.html" class="nav-link">كورساتنا</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button
+        type="button"
+        id="themeToggle"
+        class="theme-toggle"
+        title="تبديل الوضع"
+        aria-label="تبديل الوضع">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+      <a
+        href="https://wa.me/201554579501?text=مرحباً، أرغب في الحصول على استشارة طبية مجانية"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-cta">
+        <i class="fa-brands fa-whatsapp"></i>
+        احصل على استشارة
+      </a>
+    </div>
+  </div>
+
+</nav>
+<!-- <nav class="navbar">
     <a href="#home" class="logo">
       <img src="images/dark.png" alt="Growth Marketing" id="logoImg">
     </a>
@@ -728,7 +969,7 @@
          <i class="fa-brands fa-whatsapp"></i> احصل على استشارة
       </a>
     </div>
-  </nav>
+  </nav> -->
 <!-- Page Header -->
 <div class="page-header">
   <h1>كورس <span>التسويق الطبي</span></h1>
@@ -1358,10 +1599,13 @@ function saveToLocalStorage(data){
     console.log('❌ localStorage error:', e);
   }
 }
+
+
 </script>
  
  
 <input type="hidden" name="access_key" value="abc12345-6789-0def-ghij-klmnopqrstuv">
  
+<script src="main.js"></script>
 </body>
 </html>
