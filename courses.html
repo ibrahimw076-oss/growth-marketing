@@ -1600,7 +1600,60 @@ function saveToLocalStorage(data){
   }
 }
 
+/* ===== Countdown Timer - 10 Days ===== */
+function startCountdown() {
+  // حفظ وقت البداية في localStorage (عشان يستمر من نفس النقطة)
+  let startTime = localStorage.getItem('countdownStart');
+  
+  if (!startTime) {
+    // أول مرة - احفظ الوقت الحالي
+    startTime = new Date().getTime();
+    localStorage.setItem('countdownStart', startTime);
+  } else {
+    startTime = parseInt(startTime);
+  }
+  
+  // وقت النهاية = وقت البداية + 10 أيام
+  const endTime = startTime + (10 * 24 * 60 * 60 * 1000);
 
+  function update() {
+    const now = new Date().getTime();
+    const diff = endTime - now;
+
+    if (diff <= 0) {
+      // خلص الوقت - ابدأ من جديد
+      const newStart = new Date().getTime();
+      localStorage.setItem('countdownStart', newStart);
+      location.reload(); // إعادة تحميل الصفحة لتبدأ من جديد
+      return;
+    }
+
+    // حساب الأيام والساعات والدقائق والثواني
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // تحديث الأرقام
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+    if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+    if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+    if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  // تحديث فوري
+  update();
+  // ثم كل ثانية
+  setInterval(update, 1000);
+}
+
+// شغّل العداد لما الصفحة تتحمل
+document.addEventListener('DOMContentLoaded', startCountdown);
 </script>
  
  
