@@ -319,12 +319,4 @@ const navLinks = document.querySelectorAll('.nav-link');
 
   calculateTotal();
 
-
-
-
-
-
-
-
-
  
